@@ -160,7 +160,9 @@ reaxff_c30_a0 = np.array([0.045964, 0.054915, 0.001967, 0.001807, 0.014243, 0.04
 airebo_c0_a30 = np.array([-2.42813E-06, 2.91375E-06, 3.885E-06, 8.74126E-06, 1.11694E-05, 
     2.28244E-05, 4.12782E-05, 5.97319E-05, 5.87607E-05, 7.33294E-05, 
     0.000103438, 0.000123349, -0.017866647, -0.022435412, -0.024946581 ])
-
+    
+reaxff_c0_a30 = np.array([-0.00355, 0.039078, 0.015414, 0.036553, 0.057692, 0.018318, 0.034251, -0.2993, 0.031784, -0.08288, -0.20158, -0.36848, -0.81417, -0.90563, -0.99104])
+# modificar o de cima ....
 
 ######################################## apresentacao resultados nanoscrolls
 
@@ -252,10 +254,10 @@ st.write("Monocamada 100% plana com um angulo de 30 graus")
 col1, col2 = st.columns(2)
 
 with col1:
-    plotar(airebo_c0_a30, 'Airebo_plan0') 
+    plotar(airebo_c0_a30, 'Airebo_ang30') 
 
 with col2:
-    plotar(airebo_c0_a0, 'Airebo_plan00')
+    plotar2(reaxff_c0_a30, 'Reaxff_ang30')
     
 st.write("")
 st.write("")
