@@ -24,8 +24,8 @@ import numpy as np
 
 def gerar_scroll(input = "inicial.xyz",
         output = "saida.xyz",
-        volt = 1.15,
-	  dist = - 3.4,
+        volt = 2.5,
+	   dist = - 3.4,
         plan = 0.2,
         ang = 30):
 
@@ -44,7 +44,6 @@ def gerar_scroll(input = "inicial.xyz",
     cos_a = np.cos(alpha)
     sin_a = np.sin(alpha)
 
-
     R_mat = np.array([
         [cos_a, -sin_a, 0],
         [sin_a,  cos_a, 0],
@@ -53,13 +52,9 @@ def gerar_scroll(input = "inicial.xyz",
     coords_rot = coords @ R_mat
     
     x_min = coords_rot[:,0].min()
-
     x_max = coords_rot[:,0].max()
-    
     L = x_max - x_min
-    
     x_c = x_min + plan * L
-
     L_curvo = x_max - x_c
 
     a = dist / (2*np.pi)
@@ -82,11 +77,8 @@ def gerar_scroll(input = "inicial.xyz",
             nz = R*(1 - np.cos(theta)) - a * theta
             scroll_coords.append([nx, ny, nz])
 
-
     scroll_coords = np.array(scroll_coords)
-    
     R_inv = R_mat.T
-
     final_coords = scroll_coords @ R_inv
 
     with open(output, "w") as f:
@@ -95,49 +87,23 @@ def gerar_scroll(input = "inicial.xyz",
         for i in range(len(atms)):
             x, y, z = final_coords[i]
             f.write(f"{atms[i]:2s} {x:12.6f} {y:12.6f} {z:12.6f}\n")
-
-
-incremento_1 = 0.1
-incremento_2 = 0.5
-c = 0
-
-c2 = 0
-for s in range(1,13):
-     gerar_scroll(output_file=f"scroll{s}.xyz",
-     volt=s*incremento_1)
-
-     print(f'scroll {s} gerado com {s*incremento_1} voltas')
-     c += 1
-for m in range(1,4):
-     gerar_scroll(output_file=f"scroll{12+m}.xyz",
-
-     volt=m*incremento_2+1.2)
-     print(f'scroll {12+m} gerado com {m*incremento_2+1.2} voltas')
-     c2 += 1
-
-print(f'total de {c + c2} criados')
-
-
+            
 """
 codigo2 =("""
 scroll 1 gerado com 0.1 voltas
 scroll 2 gerado com 0.2 voltas
 scroll 3 gerado com 0.30000000000000004 voltas
-
 scroll 4 gerado com 0.4 voltas
 scroll 5 gerado com 0.5 voltas
 scroll 6 gerado com 0.6000000000000001 voltas
 scroll 7 gerado com 0.7000000000000001 voltas
-
 scroll 8 gerado com 0.8 voltas
 scroll 9 gerado com 0.9 voltas
 scroll 10 gerado com 1.0 voltas
-
 scroll 11 gerado com 1.1 voltas
 scroll 12 gerado com 1.2000000000000002 voltas
 scroll 13 gerado com 1.7 voltas
 scroll 14 gerado com 2.2 voltas
-
 scroll 15 gerado com 2.7 voltas
 total de 15 criados""")
 st.code(codigo, language="python")
