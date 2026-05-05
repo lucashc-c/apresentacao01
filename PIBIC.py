@@ -25,7 +25,7 @@ import numpy as np
 def gerar_scroll(input = "inicial.xyz",
         output = "saida.xyz",
         volt = 2.5,
-	   dist = - 3.4,
+	  dist = - 3.4,
         plan = 0.2,
         ang = 30):
 
