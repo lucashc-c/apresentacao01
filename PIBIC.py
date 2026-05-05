@@ -25,7 +25,7 @@ import numpy as np
 def gerar_scroll(input = "inicial.xyz",
         output = "saida.xyz",
         volt = 2.5,
-	  dist = - 3.4,
+	   dist = - 3.4,
         plan = 0.2,
         ang = 30):
 
@@ -166,20 +166,8 @@ reaxff_c0_a30 = np.array([-0.00355, 0.039078, 0.015414, 0.036553, 0.057692, 0.01
 
 ######################################## apresentacao resultados nanoscrolls
 
-st.header("Energia dos nanoscrolls")
-
-st.subheader("Airebo")
-st.latex(r'''
-E = \frac{1}{2} \sum_{i} \sum_{j \neq i} \left[ E_{ij}^{\text{REBO}} + E_{ij}^{\text{LJ}} + \sum_{k \neq i,j} \sum_{l \neq i,j,k} E_{kijl}^{\text{TORSION}} \right]
-
-''')
-
-st.subheader("Reaxff")
 
 st.subheader("Gráficos")
-
-
-
 
 #######################################################################
 st.write("Monocamada 100% plana com angulo de 0 graus")
