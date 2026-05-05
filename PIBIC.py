@@ -88,6 +88,25 @@ def gerar_scroll(input = "inicial.xyz",
             x, y, z = final_coords[i]
             f.write(f"{atms[i]:2s} {x:12.6f} {y:12.6f} {z:12.6f}\n")
             
+incremento_1 = 0.1
+incremento_2 = 0.5
+c = 0
+
+c2 = 0
+for s in range(1,13):
+     gerar_scroll(output_file=f"scroll{s}.xyz",
+     volt=s*incremento_1)
+     print(f'scroll {s} gerado com {s*incremento_1} voltas')
+     c += 1
+for m in range(1,4):
+     gerar_scroll(output_file=f"scroll{12+m}.xyz",
+
+     volt=m*incremento_2+1.2)
+     print(f'scroll {12+m} gerado com {m*incremento_2+1.2} voltas')
+     c2 += 1
+print(f'total de {c + c2} criados')
+
+            
 """
 codigo2 =("""
 scroll 1 gerado com 0.1 voltas
