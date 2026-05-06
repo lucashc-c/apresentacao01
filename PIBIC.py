@@ -17,7 +17,7 @@ st.write("")
 
 #################### codigo
 
-st.subheader("código para criação de nanoscrolls")
+st.subheader("código para criação de scrolls")
 
 codigo = """
 import numpy as np
