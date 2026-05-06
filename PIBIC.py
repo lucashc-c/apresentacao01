@@ -91,16 +91,14 @@ def gerar_scroll(input = "inicial.xyz",
 incremento_1 = 0.1
 incremento_2 = 0.5
 c = 0
-
 c2 = 0
 for s in range(1,13):
-     gerar_scroll(output_file=f"scroll{s}.xyz",
+     gerar_scroll(output=f"scroll{s}.xyz",
      volt=s*incremento_1)
      print(f'scroll {s} gerado com {s*incremento_1} voltas')
      c += 1
 for m in range(1,4):
-     gerar_scroll(output_file=f"scroll{12+m}.xyz",
-
+     gerar_scroll(output=f"scroll{12+m}.xyz",
      volt=m*incremento_2+1.2)
      print(f'scroll {12+m} gerado com {m*incremento_2+1.2} voltas')
      c2 += 1
